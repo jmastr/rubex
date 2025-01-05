@@ -23,7 +23,7 @@ int NewOnigRegex( char *pattern, int pattern_length, int option,
 
     *region = onig_region_new();
 
-    ret = onig_new_default(regex, pattern_start, pattern_end, (OnigOptionType)(option), *error_info);
+    ret = onig_new(regex, pattern_start, pattern_end, (OnigOptionType)(option), ONIG_ENCODING_UTF8, ONIG_SYNTAX_DEFAULT, *error_info);
   
     if (ret != ONIG_NORMAL) {
         error_msg_len = onig_error_code_to_str((unsigned char*)(*error_buffer), ret, *error_info);
